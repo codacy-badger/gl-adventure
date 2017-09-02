@@ -1,0 +1,113 @@
+# Makefile of glAdventure
+
+# ----------------------------
+# Valeurs modifiables
+#
+# Debug      : Set to yes to disable optimisation and enable debugging 
+#              informations
+# DefineBool : ANSI C does not define bool type. Set to yes to define it.
+# FakeEscape : Defines the Escape to exit the program, even if key bindings
+#              failed.
+# MapUShort  : Set to yes to makes the map using unsigned short type. If
+#              set to no, map will use integers. If makes a difference
+#              in some compilers where ushort is smaller than integer.
+#
+#
+Debug 		= yes
+DefineBool 	= yes
+FakeEscape      = no
+MapUShort       = yes
+# ----------------------------
+
+ifeq ($(Debug),yes)
+# 	DEBUG mode
+	OPT	+= -ggdb3 -O0 -DXA_DEBUG
+else
+# 	RELEASE mode
+	OPT	+= -O3
+endif
+
+ifeq ($(DefineBool),yes)
+	OPT += -DXA_BOOL
+endif
+
+ifeq ($(FakeEscape),yes)
+	OPT += -DXA_FAKE_ESCAPE
+endif
+
+ifeq ($(MapUShort),yes)
+	OPT += -DXA_MAP_USHORT
+endif
+
+# The eu-strip program is in the elfutils package
+STR             = eu-strip
+GCC 		= gcc
+LIB 		= -L/usr/X11R6/lib -lX11 -lglut -lGL -lGLU -lm -lXxf86vm
+BIN		= glAdventure 
+VAL		= valgrind --leak-check=full --show-reachable=yes\
+		    --suppressions=Xlib.supp --suppressions=valgrind.supp
+GDB		= gdb
+
+# Please keep this list sorted (game state then thinkers at the end)
+OBJ		= colors.o  		\
+		  fonts.o		\
+		  gamestate.o		\
+		  gl_font.o		\
+		  gl_window.o		\
+		  gslist.o		\
+		  hud.o			\
+		  inventory.o		\
+		  keybinding.o		\
+		  load_bmp.o		\
+		  loadmap.o		\
+		  load_objects.o	\
+		  logger.o 		\
+		  main.o  		\
+		  map.o			\
+		  monster.o		\
+		  object_list.o		\
+		  opengl.o		\
+		  options.o		\
+		  player.o		\
+		  stringlist.o		\
+		  time_utils.o		\
+		  \
+		  gsgame.o		\
+		  gshelp.o		\
+		  gsintro.o		\
+		  gs_monster.o		\
+		  \
+		  th_basic.o
+
+all: $(BIN)
+
+glAdventure: $(OBJ)
+	$(GCC) -o $@ $^ $(LIB)
+
+# We must not demangle c++ name to write suppression file
+valgrind: $(BIN)
+	$(VAL) ./$(BIN)
+
+# Adds detected error count to valgrind
+valgrindv: $(BIN)
+	$(VAL) -v ./$(BIN)
+
+gdb: debug
+	$(GDB) ./$(BIN)
+
+clean:
+	rm -f *~
+	rm -f *.o
+	rm -fR html
+	cd tests&&make clean
+	cd maps&&rm -f *~
+
+distclean: clean
+	rm -f $(BIN)
+
+# reduces the executable size
+strip:$(BIN)
+	$(STR) $(BIN)
+
+%.o: %.c
+	$(GCC) -o $@ -c $< $(OPT) 

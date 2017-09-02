@@ -72,3 +72,4 @@
 - [ ] --fullscreen command line option must work
 - [ ] May use gettext for content translation
 - [ ] There is a segfault when we go down when in the blue square Y axis
+- [ ] May remove src/old_makefile if cmake works
