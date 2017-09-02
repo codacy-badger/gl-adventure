@@ -1,0 +1,3 @@
+Packages to be installed on Debian: 
+libxxf86vm-dev
+freeglut3-dev

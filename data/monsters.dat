@@ -1,0 +1,27 @@
+# Object file for xAdventure
+
+# Warning : The last line must be finished by a new line character
+
+# Warning : For description, the max length of a line of text is
+#   defined as a preprocessor macro called MONSTER_MAX_LINE in load_monster.h
+#   but this limitation is avoid cause you can made multiline description
+#   when a line finish with the '\' character, the parser will treat
+#   the next line as a description continuation.
+
+# Each monster is defined by (time are expressed in milliseconds):
+#   its english name
+#   its french name
+#   a multiline english descriprion
+#   a multiline french descriprion
+#   the think time
+#   the move time
+#   the turn time
+
+Mummy
+Mommie
+A easy-to-kill creature
+Une créature facile à tuer
+865
+1200
+600
+

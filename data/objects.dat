@@ -1,0 +1,78 @@
+# Object file for xAdventure
+
+# Warning : The last line must be finished by a new line character
+
+# Warning : For description, the max length of a line of text is
+#   defined as a preprocessor macro called OBJ_MAX_LINE in load_object.h
+#   but this limitation is avoid cause you can made multiline description
+#   when a line finish with the '\' character, the parser will treat
+#   the next line as a description continuation.
+
+# Note : find percentage is express with exponent cause it seems
+#   to be more error-less than floating point number. Please use 432e-2 for
+#   4.32f. You may want to know that it is not a percent. It is treated
+#   in get_random_object() function, implemented in object_list.c. Think
+#   about this number as a fraction to the total find_percent of all
+#   objects. The use should be : 
+#   - 5.0 is an object we can easily find;
+#   - 1.0 is a rare object
+#   - under 0.1, The amout of find_percent is ridiculous from the total :)
+
+# Each object is defined as
+# alpha_id : An alphanumeric id, without spaces, unique and used in map
+# english name
+# french name
+# english description
+# french description
+# weight in gramms
+# find percentage as a float
+# type value : Values depends on type (Should be the same in load_objects.h)
+
+# Values of type are : 
+# Type                   Value(s)
+# 001 Food object        food raise value
+# 002 Water object       water raise value
+
+###########################################
+# FOOD OBJECTS
+
+chicken_leg
+Chicken leg
+Cuisse de poulet
+A delicious chicken leg
+Une délicieuse cuisse de poulet
+200
+526e-2
+001 20
+
+turkey_thigh
+Turkey thigh
+Cuisse de dinde
+The turkey thigh is a tasty meat, \
+roasted on wood fire.
+La cuisse de dinde est une viande savoureuse, \
+cuîte au feu de bois
+350
+440e-2
+001 40
+
+###########################################
+# WATER OBJECTS
+
+water_flask
+Water flask
+Fiole d'eau
+A flask full of water
+Une fiole pleine d'eau
+200
+320e-2
+002 30
+
+water_skin
+Waterskin
+Gourde d'eau
+A skin of water
+Une gourde d'eau
+600
+480e-2
+002 50

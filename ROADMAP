@@ -1,0 +1,74 @@
+					Hey emacs, this is a -*-org-*- file.
+
+* v1.0.0
+** v0.2.0
+*** v0.1.4
+**** Maybe add a plugin system with a scripting language
+- [ ] Chose a scripting lmanguage, maybe lua
+**** Handle multi-level maps        [%]
+- [ ] In map.dat handle upstairs with > and < for downstairs
+- [ ] We must test if a stair in a level (up or down) as a corresponding
+  stair in another level
+**** Monster management             [33%]
+     :CLOCK:
+     CLOCK: [2010-03-11 jeu 15:11]--[2010-03-11 jeu 15:54] =>  0:43
+     CLOCK: [2010-03-10 mer 14:47]--[2010-03-10 mer 15:38] =>  0:51
+     CLOCK: [2010-03-09 mar 15:55]--[2010-03-09 mar 16:45] =>  0:34
+     :END:
+- [X] -m/--monster <NAME> command line option
+      To test the given monster in a random map
+- [X] data/monster.dat to read monster list
+- [X] struct monster_t (msec is millisecond as an unsigned integer)
+      char* name:
+      char* description:
+      msec think_time: Time to think about the next action
+      msec move_time:  Time needed to move to the next case
+      msec turn_time:  Time needed for a complete turn around (360 degrees)
+      int direction:  0=north, 90=east, 180=south, 270=west
+      int to_dir:     Turn around to direction (otherwise=-1)
+      int to_case:    Percent of the move to the next case (or -1)
+      funcptr thinker: A function ptr to the thinker function with this signature:
+                       void (funcptr)(decision_t*, const monster_t*, const map_t*, const player_t*)
+		       The thinker function only modify the decision_t struct.
+- [ ] monster_list.h/.cpp: Implements a list of monsters (see object_list)
+- [ ] tests/test_monster_list To test memory leaks 
+- [ ] load_monsters reads data/monster.dat
+      	       
+- [ ] struct decision_t
+      typedef enum{WAIT, MOVE, TURN} action_t;
+      action_t action;
+      action_t last_action; A little memory (last finished action)
+      uint arg: 
+          - Argument of the turn action (a direction) or
+	  - Argument of the wait action (msec)
+	  - Move action does not need argument as we move after turn (see algo)
+- [ ] Algo
+      waiting think time... thinker decides to move or turn
+      turn if needed
+      move to the next case in the current direction (turn finished)
+- [ ] Drawing
+      the monster: a triangle to show direction
+      the vision of the monster
+      its name
+      
+**** Implement a first person view  [0%]
+- [ ] We must have the last charcter direction first and maybe draw it
+  (as an arrow)
+- [ ] Test the camera translation function with a zoom first
+- [ ] This view must traslate camera as if we were in 1st person game
+  then let the mouse move the character head
+- [ ] This translation could be letter used as a combat starting
+**** TODO Better project setup      [20%]
+     CLOCK: [2017-09-03 dim. 00:32]
+     CLOCK: [2015-04-09 jeu. 13:39]--[2015-04-09 jeu. 14:22] =>  0:43
+- [X] All sources go in src/
+  - [X] Must change paths to data and images
+- [ ] Create git repo
+- [ ] May use cmake for better building output
+  old makefile is in src/old_makefile
+  - [ ] Think about the manual makefile options
+  - [ ] VERSION and REVISION should go in CMakeLists.txt
+    And change TODO message
+- [ ] --fullscreen command line option must work
+- [ ] May use gettext for content translation
+- [ ] There is a segfault when we go down when in the blue square Y axis

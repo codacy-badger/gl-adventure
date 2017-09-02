@@ -1,0 +1,51 @@
+glAdventure - GPLv2 - A little adventure/maze game in C/OpenGL with
+   simplest graphics
+
+o [mouse] Monsters management
+   Please see ROADMAP
+- Should test thinker and its forward struct declaration
+- algo: 
+   test if going forward is possible 
+   -> yes, go forward
+   -> no, turn left
+- Enable a random moving and turning time (+/- 10%)
+
+* General
+- Command line options
+   -r --resolution 640x480 --800x600 --1024x768
+   --fullscreen
+- See inventory bug (negative number of objects)
+
+* Is a directfbgl version possible ?
+
+* Collecting items and inventory HUD
+- Makes the death message work again
+
+* Graphic improvment
+- Shade effect between walls using multitexture
+- Mouse wheel to zoom in/out the map
+- Using a light on the player
+- Player is an arrow (to show its direction)
+- Show 'champ de vision' : see champDeVision.svg
+
+* Coding style
+- Only screen-related string should be translated (too much work :)
+- Remove graphics_t when no more use (in graphics.h)
+- Remove axe plans when no more use
+- Remove font_t because based on XLib when no more use
+- Set textures in a structure to be able to name them
+
+=== Changelog ===
+   8 items by revision
+   Please update version in the `def.h` source file
+   FT is the ROADMAP file time
+
+* v0.1.3-41 (11 mar 2010 - ???) SLOC ??? FT ???
+- (7) Initial git commit
+- Cmake switch now works
+- Tried to switch to cmake (all sources in src/)
+- champDeVision.svg created
+- monster_t::memory documented
+- Started the monster's thinker memory implementation
+- Removed test_arg_option from main.c
+
