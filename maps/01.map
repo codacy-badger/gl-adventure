@@ -1,0 +1,58 @@
+# glAdventure map example
+
+# General considerations :
+# - All lines that start with # are comments;
+# - The max lenght of a line of text is defined in map.h;
+# - If the example show you 2 value in a line (map size, stating 
+#   position...) please let it in a single line;
+# - Be careful when writing your own map, if the file is incorrect
+#   the game will end because my controls are made of assert.
+
+# 3B is magic number telling the map type
+3B
+
+# The following string is the map name
+glAdventure map creation example
+
+# The following tells the width height and depth of the map
+20 15 60
+
+# The following is the player starting position (X Y)
+12 2
+
+# The following is the End Of Level position (X Y)
+3 13
+
+# Here comes the map data
+# A line MUST contain data for the whole width
+10000111111111111000
+10001111111001110011
+00111110111001110011
+00111110011000110011
+10011111000000110010
+11001110000000000000
+11100110111001110010
+11000110111000110010
+11000000111000010010
+11111111110000110010
+11001110000000000010
+11100110111001100000
+11000110111000110011
+11000000111000010001
+11111111110000111111
+
+# Objects placement
+# Warning : The first case is 0
+# x y id
+#        id can be RANDOM to get a random object
+4 0 chicken_leg
+5 8 chicken_leg
+5 8 RANDOM
+5 8 RANDOM
+5 8 RANDOM
+5 8 RANDOM
+5 8 RANDOM
+5 8 RANDOM
+5 8 RANDOM
+5 8 RANDOM
+5 8 RANDOM
