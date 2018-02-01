@@ -79,9 +79,7 @@ map_t* read_map_directory(int map_idx){
   struct dirent* result;
   char last_char;
 
-  map_t* map = init_map(false);
- 
-  
+
   DIR* dir = opendir(MAP_DIR);
   assert(dir && "Cannot open maps/ dirctory");
 
@@ -102,16 +100,13 @@ map_t* read_map_directory(int map_idx){
 	LOG("Do not loading '..' file.");
       }
       else{
-	load_map( result->d_name, map);
-	map_number++;
+	return load_map( result->d_name);
       }
     }
   }
   while (result!=NULL);
 
   closedir(dir);
-
-  return map_number;
 }
 
 /** Loads a map
@@ -120,7 +115,9 @@ map_t* read_map_directory(int map_idx){
   * \param map      The map that will contain loaded one
   *
   */
-void load_map(const char* map_name, map_t* map){
+map_t* load_map(const char* map_name){
+  map_t* map = init_map(false);
+
   current_data_line = 0;
 
   assert(map && "map pointer is null");
