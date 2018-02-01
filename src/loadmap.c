@@ -50,7 +50,7 @@ map_t* get_random_map(void){
   map_t* map = init_map(false);
   assert(map && "Map initialization failed");
   
-  int nb = read_map_directory(false, 0, NULL);
+  int nb = get_map_directpry_size(false, 0, NULL);
   assert(nb && "No map was found");
   
   int rand_map = rand() % nb;
@@ -59,6 +59,7 @@ map_t* get_random_map(void){
   LOGI("Loading map number : %d", rand_map);
   
   read_map_directory(true, rand_map, map);
+  DEBUG_MAP(map);
   return map;
 }
 
@@ -373,4 +374,44 @@ void handle_objects_pos(char* val, map_t* map){
   else{
     case_add_object(&map->case_list[idx], id);
   }
+}
+
+int
+get_map_directpry_size()
+{
+  int map_number=0;
+  int res;
+  struct dirent entry;
+  struct dirent* result;
+  char last_char;
+
+  DIR* dir = opendir(MAP_DIR);
+  assert(dir && "Cannot open maps/ dirctory");
+
+  do {
+    res= readdir_r(dir, &entry, &result);
+    assert(res==0 && "Cannot read maps/ dirctory");
+    if (result){
+      // Get the last char of the filename
+      last_char = result->d_name[strlen(result->d_name)-1];
+
+      if (last_char == '~'){
+	LOGS("'%s' is a backup. Do not loading.", result->d_name);
+      }
+      else if (strcmp(result->d_name, ".")==0){
+	LOG("Do not loading '.' file.");
+      }
+      else if (strcmp(result->d_name, "..")==0){
+	LOG("Do not loading '..' file.");
+      }
+      else{
+	map_number++;
+      }
+    }
+  }
+  while (result!=NULL);
+
+  closedir(dir);
+
+  return map_number;
 }

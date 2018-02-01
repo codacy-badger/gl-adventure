@@ -54,6 +54,7 @@ typedef enum{
 char current_data_line;
 
 map_t* get_random_map(void);
+int get_map_directpry_size();
 int read_map_directory(bool, int, map_t*);
 void load_map(const char*, map_t*);
 
