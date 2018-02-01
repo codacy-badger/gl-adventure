@@ -58,9 +58,7 @@ map_t* get_random_map(void){
   LOGI("Number of maps found : %d", nb);
   LOGI("Loading map number : %d", rand_map);
   
-  read_map_directory(true, rand_map, map);
-  DEBUG_MAP(map);
-  return map;
+  return read_map_directory(rand_map);
 }
 
 
@@ -73,7 +71,7 @@ map_t* get_random_map(void){
   * \return Number of map found in the directory
   *
   */
-int read_map_directory(bool load, int map_idx, map_t* map){
+map_t* read_map_directory(int map_idx){
   LOGI("Reading map directory '%i'", map_idx);
   int map_number=0;
   int res;
@@ -81,6 +79,9 @@ int read_map_directory(bool load, int map_idx, map_t* map){
   struct dirent* result;
   char last_char;
 
+  map_t* map = init_map(false);
+ 
+  
   DIR* dir = opendir(MAP_DIR);
   assert(dir && "Cannot open maps/ dirctory");
 
@@ -101,10 +102,7 @@ int read_map_directory(bool load, int map_idx, map_t* map){
 	LOG("Do not loading '..' file.");
       }
       else{
-	if (load && map_number==map_idx){
-	  assert(map && "map pointer is null");
-	  load_map( result->d_name, map);
-	}
+	load_map( result->d_name, map);
 	map_number++;
       }
     }

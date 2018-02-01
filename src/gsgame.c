@@ -110,7 +110,7 @@ game_state_t* init_gs_game(void){
   gs->key_list = add_binding(gs->key_list, XK_l, &game_log_player);
 #endif // XA_DEBUG
 
-  map = (map_t*)get_random_map();
+  map = get_random_map();
   assert(map && "Can't get a usable map");
   
   DEBUG_MAP(map);

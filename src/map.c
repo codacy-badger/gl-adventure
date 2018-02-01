@@ -200,6 +200,7 @@ void debug_map(map_t* map){
   int x, y;
 
   assert(map && "Debugging NULL map");
+  assert(map->name && "Spurious map name. Exitting!");
   printf("Debugging map :\n");
   printf("  name   = %s\n", map->name); 
   printf("  width  = %d\n", map->width); 
