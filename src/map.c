@@ -29,6 +29,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <assert.h>
 
 #include "logger.h"
 #include "gsgame.h"
@@ -136,7 +137,7 @@ void feed_case_list(map_t* vMap){
       vMap->case_list[idx].objects = NULL;
     }
   }
-  free(temp_c);
+  //  free(temp_c);
 }
 
 /** Adds an object to a case position
@@ -198,6 +199,7 @@ void test_one_wall(char vChar){
 void debug_map(map_t* map){
   int x, y;
 
+  assert(map && "Debugging NULL map");
   printf("Debugging map :\n");
   printf("  name   = %s\n", map->name); 
   printf("  width  = %d\n", map->width); 

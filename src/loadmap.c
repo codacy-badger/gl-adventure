@@ -48,7 +48,8 @@
 map_t* get_random_map(void){
 
   map_t* map = init_map(false);
-
+  assert(map && "Map initialization failed");
+  
   int nb = read_map_directory(false, 0, NULL);
   assert(nb && "No map was found");
   
@@ -72,6 +73,7 @@ map_t* get_random_map(void){
   *
   */
 int read_map_directory(bool load, int map_idx, map_t* map){
+  LOGI("Reading map directory '%i'", map_idx);
   int map_number=0;
   int res;
   struct dirent entry;
@@ -172,8 +174,10 @@ void load_map(const char* map_name, map_t* map){
 
       case ML_NAME:
 	LOGS("Map's name is %s", content);
-	map->name = (char*)malloc((strlen(content)+1) * sizeof(char));
-	strcpy( map->name, content);
+	map->name = strdup(content);
+	assert(map->name && "strfup() failed for map->name");
+	
+	LOGS("Map's name copied to '%s'", map->name);
 	load++;
 	break;
       
