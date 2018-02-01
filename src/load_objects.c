@@ -43,7 +43,7 @@
 object_list_t* load_objects(void){
   object_list_t* ol = create_object_list();
 
-  FILE* f = fopen("data/objects.dat", "r");
+  FILE* f = fopen("../data/objects.dat", "r");
   assert(f && "Cannot open objects file");
 
   char content_nl[OBJ_MAX_LINE];

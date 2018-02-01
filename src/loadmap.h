@@ -43,7 +43,7 @@ typedef enum{
 }map_loading_t;
 
 /** The directory where the maps are loaded */
-#define MAP_DIR "./maps/"
+#define MAP_DIR "../maps/"
 /** The max lenght of a line in the map file */
 #define MAP_MAX_LINE 200
 
