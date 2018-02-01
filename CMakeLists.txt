@@ -48,7 +48,8 @@ set( CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} modules)
 
 find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)
-find_package(X11XVM REQUIRED)
+find_package(X11 REQUIRED)
+#find_package(X11XVM REQUIRED)
 
 include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} 
 		     ${X11_INCLUDE_DIR} ${X11_xf86vmode_INCLUDE_PATH})
