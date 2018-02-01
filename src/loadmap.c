@@ -208,6 +208,7 @@ map_t* load_map(const char* map_name){
   }
   fclose(f);
   free(full_name);
+  return map;
 }
 
 /** Get the map size from the given text

@@ -255,8 +255,9 @@ void drawGLScene(){
   // Reset The View
   glLoadIdentity();
 
-  
+  assert (gslist[current_gs]->draw_fnc_ptr && "Invalid draw fun ptr");
   gslist[current_gs]->draw_fnc_ptr();
+  
   glXSwapBuffers(GLWin.dpy, GLWin.win);
 }
 

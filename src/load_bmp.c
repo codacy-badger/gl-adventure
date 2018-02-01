@@ -162,13 +162,13 @@ bool load_one_textures(GLuint* id, char* filename){
   */
 bool loadGLTextures(){
   bool status;
-  status = load_one_textures(&texture[0], "images/NeHe.bmp");
+  status = load_one_textures(&texture[0], "../images/NeHe.bmp");
   assert(status && "Cannot load texture 'images/NeHe.bmp'");
 
-  status = load_one_textures(&texture[1], "images/wall.bmp");
+  status = load_one_textures(&texture[1], "../images/wall.bmp");
   assert(status && "Cannot load texture 'images/wall.bmp'");
 
-  status = load_one_textures(&texture[2], "images/floor.bmp");
+  status = load_one_textures(&texture[2], "../images/floor.bmp");
   assert(status && "Cannot load texture 'images/floor.bmp'");
 
  

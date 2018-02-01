@@ -28,6 +28,7 @@
 
 #include "gsgame.h"
 
+
 /** The map's zoom factor */
 float map_zoom = 10.0f;
 
@@ -42,6 +43,7 @@ float map_zoom = 10.0f;
 #include <assert.h>
 #include <limits.h>
 
+#include "loadmap.h" // Uses get_random_map()
 #include "time_utils.h"
 #include "gslist.h"
 #include "logger.h"
