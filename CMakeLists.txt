@@ -3,7 +3,7 @@ cmake_minimum_required (VERSION 2.6)
 project (gladventure)
 
 # XA_DEBUG adds a lot of console output
-add_definitions(-DXA_BOOL -DXA_DEBUG)
+add_definitions(-DXA_BOOL) # -DXA_DEBUG)
 
 include_directories(./src)
 

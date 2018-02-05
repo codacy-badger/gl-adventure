@@ -58,41 +58,17 @@
 - [ ] This view must traslate camera as if we were in 1st person game
   then let the mouse move the character head
 - [ ] This translation could be letter used as a combat starting
-**** TODO Trying to fix actual segfault
-     CLOCK: [2018-02-01 jeu. 20:52]--[2018-02-01 jeu. 22:07] =>  1:15
-     CLOCK: [2018-02-01 jeu. 19:55]--[2018-02-01 jeu. 20:25] =>  0:30
-     Occurs when loading map
--  at /home/rainbru/programmation/bitbucket.org/gl_adventure/src/map.c:206
-206	  printf("  width  = %d\n", map->width); 
-- Try to use `newiver`, a graphical frontend for gdb
-
-- The bug is around loadmap.c:177 : strdup isn't copying the string
-- The stacktrace doesn't sho loadmap call :
-#0  0x0000555555560a09 in debug_map (map=0x55782ee0)
-    at /home/rainbru/programmation/bitbucket.org/gl_adventure/src/map.c:206
-#1  0x0000555555563a98 in init_gs_game ()
-    at /home/rainbru/programmation/bitbucket.org/gl_adventure/src/gsgame.c:116
-#2  0x000055555555ba9b in init_gs_list ()
-    at /home/rainbru/programmation/bitbucket.org/gl_adventure/src/gslist.c:55
-#3  0x000055555556012e in main (argc=1, argv=0x7fffffffe158)
-    at /home/rainbru/programmation/bitbucket.org/gl_adventure/src/main.c:151
-- map pointer is woming from get_random_map() from src/loadmap.c
-  which take its map pointer from get_random_map
-- Debugging map from get_random_map() works!
-  
-- [ ] Create a new get_map_directory_size() function
-- [ ] to read_map_directory should return a map*
-- [ ] Maybe also load_map()
 
 **** TODO Better project setup      [28%]
+     CLOCK: [2018-02-05 lun. 03:42]--[2018-02-05 lun. 04:12] =>  0:30
      CLOCK: [2017-09-03 dim. 00:32]--[2017-09-03 dim. 00:40] =>  0:08
      CLOCK: [2015-04-09 jeu. 13:39]--[2015-04-09 jeu. 14:22] =>  0:43
 - [X] All sources go in src/
   - [X] Must change paths to data and images
 - [X] Create git repo
-- [ ] May use cmake for better building output
+- [-] May use cmake for better building output
   old makefile is in src/old_makefile
-  - [ ] Think about the manual makefile options
+  - [X] Think about the manual makefile options
   - [ ] VERSION and REVISION should go in CMakeLists.txt
     And change TODO message
 - [ ] Better tests handling
@@ -101,3 +77,14 @@
 - [ ] --fullscreen command line option must work
 - [ ] May use gettext for content translation
 - [ ] There is a segfault when we go down when in the blue square Y axis
+**** DONE Trying to fix actual segfaults
+     CLOCK: [2018-02-05 lun. 02:35]--[2018-02-05 lun. 03:42] =>  1:07
+     CLOCK: [2018-02-01 jeu. 20:52]--[2018-02-01 jeu. 22:07] =>  1:15
+     CLOCK: [2018-02-01 jeu. 19:55]--[2018-02-01 jeu. 20:25] =>  0:30
+     Occurs when loading map
+- [X] Create a new get_map_directory_size() function
+- [X] to read_map_directory should return a map*
+- [X] Maybe also load_map()
+- [X] in drawGLScene ()
+  - [X] See why gslist (the gamestate list) is a ** : it's an array of gamestate*
+    Try to define it at gamestate* gslist[]
