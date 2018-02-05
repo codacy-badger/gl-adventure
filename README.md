@@ -2,8 +2,8 @@
 
 A ugly C dungeon exploration game :
 
-![doc/gla-menu.png](Menu screenshot)
-![doc/gla-game.png](Game screenshot)
+![Menu screenshot](doc/gla-menu.png)
+![Game screenshot](doc/gla-game.png)
 
 # Command-line options
 
@@ -13,11 +13,11 @@ A ugly C dungeon exploration game :
 
 # In-game controls
 
-| Arrows | Move player                     |
-| I      | Inventory dialog                |
-| C      | Character dialog                |
-| Esc    | Exit                            |
-| Enter  | Collect item                    |
-| Page up/down | Zoom in/out               |
-| D      | Log debug  (only in Debug mode) |
-| L      | Log player (only in Debug mode) |
+Arrows  Move player
+I       Inventory dialog
+C       Character dialog
+Esc     Exit
+Enter   Collect item
+Page up/down  Zoom in/out
+D      Log debug  (only in Debug mode)
+L       Log player (only in Debug mode)
