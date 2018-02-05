@@ -37,10 +37,10 @@ o [mouse] Monsters management
 
 === Changelog ===
    8 items by revision
-   Please update version in the `def.h` source file
+   Please update version/revision in CMakeLists.txt
    FT is the ROADMAP file time
    Create a revision git tag and `git push --tags`
    
 * v0.1.3-42 (05 Feb. 2018 - ???) SLOC ?,??? FT ?:??
-
+- (1) Version and revision now in CMakeLists.txt
 

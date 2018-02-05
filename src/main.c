@@ -56,7 +56,7 @@
 #include "time_utils.h"
 #include "options.h"
 
-#include "def.h"
+#include "config.h"
 
 /** Defines a simpler way to use gettext
   *
@@ -145,7 +145,7 @@ int main(int argc, char** argv){
   bindtextdomain( "xAdventure", "/usr/share/locale" );
   textdomain( "xAdventure" );
 
-  printf(_("Starting %s v%s\n"), XA_PROGNAME, XA_VERSION);
+  printf(_("Starting %s v%s\n"), PACKAGE, VERSTRING);
 
   // Create game state list
   gslist = init_gs_list();
@@ -154,7 +154,7 @@ int main(int argc, char** argv){
   /* default to windowed */
   GLWin.fs = False;
   char title[40];
-  sprintf(title, "%s v%s", XA_PROGNAME, XA_VERSION);
+  sprintf(title, "%s v%s", PACKAGE, VERSTRING);
   createGLWindow(title, 1024, 768, 24, GLWin.fs);
 
     /* wait for events*/ 

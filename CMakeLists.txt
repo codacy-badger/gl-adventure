@@ -5,8 +5,18 @@ project (gladventure)
 # XA_DEBUG adds a lot of console output
 add_definitions(-DXA_BOOL) # -DXA_DEBUG)
 
-include_directories(./src)
 
+# Generate a config file
+set(VERSION 0.3.90)
+set(REVISION 0)
+configure_file(
+  "${PROJECT_SOURCE_DIR}/config.h.in"
+  "${PROJECT_BINARY_DIR}/config.h"
+  )
+
+include_directories(./src)
+# To be able to include config.h
+include_directories(${PROJECT_BINARY_DIR})
 
 set(SRC		  src/colors.c  		
 		  src/fonts.c		

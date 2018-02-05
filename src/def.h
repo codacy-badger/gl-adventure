@@ -33,12 +33,6 @@
 #include <libintl.h>
 #include <locale.h>
 
-/** The version of the program */
-#define XA_PROGNAME "glAdventure"
-
-/** The version of the program */
-#define XA_VERSION "0.1.3-41"
-
 /** \def NULL
   * Defines NULL macro
   *
