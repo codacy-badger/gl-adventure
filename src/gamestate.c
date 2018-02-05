@@ -48,6 +48,10 @@ game_state_t* new_game_state(const char* vName, gs_fncptr_t vDraw){
   gs->name = (char*)malloc(strlen(vName)+1);
   strcpy( gs->name, vName );
   gs->key_list = init_key_binding_list();
+  if (!vDraw)
+    {
+      LOGS("WARNING: setting NULL draw_fnc_ptr for gamestate '%s'", vName);
+    }
   gs->draw_fnc_ptr = vDraw;
   gs->timer_fnct_ptr = NULL;
   assert(gs->key_list);

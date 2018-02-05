@@ -32,6 +32,10 @@
 
 #include "gs_monster.h"
 
+#include "gsgame.h"
+#include "gshelp.h"
+#include "gsintro.h"
+
 /** Allocates and return the game state list
   *
   * The game states are created and added to the list.
@@ -43,7 +47,7 @@ game_state_t** init_gs_list(void){
   // To test list integrity with an assert
   int nbstate=0;
 
-  size_t size = sizeof(game_state_t*)*GS_LIST_SIZE;
+  size_t size = sizeof(game_state_t*) * GS_LIST_SIZE;
   game_state_t** gsl =(game_state_t**)malloc(size);
 
   gsl[GS_INTRO] = (game_state_t*)init_gs_intro();   
