@@ -155,7 +155,7 @@ int main(int argc, char** argv){
   GLWin.fs = False;
   char title[40];
   sprintf(title, "%s v%s", XA_PROGNAME, XA_VERSION);
-  createGLWindow(title, 640, 480, 24, GLWin.fs);
+  createGLWindow(title, 800, 600, 24, GLWin.fs);
 
     /* wait for events*/ 
     while (!done)
@@ -166,12 +166,12 @@ int main(int argc, char** argv){
             XNextEvent(GLWin.dpy, &event);
             switch (event.type)
             {
-                case Expose:
-	                if (event.xexpose.count != 0)
-	                    break;
-                    drawGLScene();
-                    break;
-                case ConfigureNotify:
+	    case Expose:
+	      if (event.xexpose.count != 0)
+		break;
+	      drawGLScene();
+	      break;
+	    case ConfigureNotify:
                 /* call resizeGLScene only if our window-size changed */
                     if ((event.xconfigure.width != GLWin.width) || 
                         (event.xconfigure.height != GLWin.height))
@@ -255,6 +255,7 @@ void drawGLScene(){
   // Reset The View
   glLoadIdentity();
 
+  LOGI("Calling draw_fnc_ptr for gamestate '%d'", current_gs);
   assert (gslist[current_gs]->draw_fnc_ptr && "Invalid draw fun ptr");
   gslist[current_gs]->draw_fnc_ptr();
   
