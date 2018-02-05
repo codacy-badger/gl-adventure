@@ -155,7 +155,7 @@ int main(int argc, char** argv){
   GLWin.fs = False;
   char title[40];
   sprintf(title, "%s v%s", XA_PROGNAME, XA_VERSION);
-  createGLWindow(title, 800, 600, 24, GLWin.fs);
+  createGLWindow(title, 1024, 768, 24, GLWin.fs);
 
     /* wait for events*/ 
     while (!done)
@@ -255,7 +255,6 @@ void drawGLScene(){
   // Reset The View
   glLoadIdentity();
 
-  LOGI("Calling draw_fnc_ptr for gamestate '%d'", current_gs);
   assert (gslist[current_gs]->draw_fnc_ptr && "Invalid draw fun ptr");
   gslist[current_gs]->draw_fnc_ptr();
   

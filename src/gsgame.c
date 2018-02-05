@@ -105,8 +105,6 @@ game_state_t* init_gs_game(void){
   gs->key_list = add_binding(gs->key_list, XK_Page_Up, &game_zoom_in);
   gs->key_list = add_binding(gs->key_list, XK_Page_Down, &game_zoom_out);
 
-
-
 #ifdef XA_DEBUG
   gs->key_list = add_binding(gs->key_list, XK_d, &game_toggle_debug);
   gs->key_list = add_binding(gs->key_list, XK_l, &game_log_player);
