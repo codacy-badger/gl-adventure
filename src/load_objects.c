@@ -1,5 +1,5 @@
 /*
- *  Copyright 2008-2010 Jerome PASQUIER
+ *  Copyright 2008-2010, 2018 Jerome PASQUIER
  * 
  *  This file is part of glAdventure - A little game using XGL.
  *

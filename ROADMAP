@@ -4,7 +4,7 @@
 ** v0.2.0
 *** v0.1.4
 **** Maybe add a plugin system with a scripting language
-- [ ] Chose a scripting lmanguage, maybe lua
+- [ ] Chose a scripting lmanguage, maybe lua or python
 **** Handle multi-level maps        [%]
 - [ ] In map.dat handle upstairs with > and < for downstairs
 - [ ] We must test if a stair in a level (up or down) as a corresponding
@@ -57,9 +57,16 @@
 - [ ] Test the camera translation function with a zoom first
 - [ ] This view must traslate camera as if we were in 1st person game
   then let the mouse move the character head
-- [ ] This translation could be letter used as a combat starting
-
-**** TODO Better project setup      [42%]
+- [ ] This translation could be later used as a combat starting
+**** Must handle map exit
+- [ ] Maybe with the '>' key (as in a multilevel map)
+- [ ] Maybe with a endmap screen
+  That compute all things we've done in this map (found objects, xp earned...)
+  Then hit enter to go to another randomly choosen map
+**** May add a screen to let the user enter its name
+     or choose an already existing player (if alive)
+- [ ] It can lead to a save game (in ~/.gladventure)
+**** TODO Better project setup      [50%]
      CLOCK: [2018-02-05 lun. 04:30]
      CLOCK: [2018-02-05 lun. 03:42]--[2018-02-05 lun. 04:12] =>  0:30
      CLOCK: [2017-09-03 dim. 00:32]--[2017-09-03 dim. 00:40] =>  0:08
@@ -72,9 +79,13 @@
   - [X] Think about the manual makefile options
   - [X] VERSION and REVISION should go in CMakeLists.txt
     - [X] Must generate a config.h file
+- [X] Must update headers for 2018
 - [ ] Better tests handling
+  - [ ] cmake should search for `check`
   - [ ] tests sources must go in src/ 
     To be able to count them with sloccount
+  - [ ] Should eb bind to `make check` command
+  - [ ] Add UT number to TODO
 - [ ] --fullscreen command line option must work
 - [ ] May use gettext for content translation
 - [ ] There is a segfault when we go down when in the blue square Y axis
