@@ -1,3 +1,13 @@
+* v0.1.3-41 (11 mar 2010 - 05 Feb. 2018) SLOC 4,107 FT 6:37
+- Fix some segfaults
+- Initial git commit
+- Cmake switch now works
+- Tried to switch to cmake (all sources in src/)
+- champDeVision.svg created
+- monster_t::memory documented
+- Started the monster's thinker memory implementation
+- Removed test_arg_option from main.c
+
 * v0.1.3-40 (10 mar 2010 - 11 mar 2010) SLOC 4,194 FT 1:41
 - Doxygen documentation update
 - thinker called when thinking time elapsed

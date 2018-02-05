@@ -37,7 +37,7 @@
 #define XA_PROGNAME "glAdventure"
 
 /** The version of the program */
-#define XA_VERSION "0.1.3-39"
+#define XA_VERSION "0.1.3-41"
 
 /** \def NULL
   * Defines NULL macro
