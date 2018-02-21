@@ -18,7 +18,6 @@ script:
   - cd build
   - cmake ..
   - VERBOSE=1 make
-  - VERBOSE=1 make check
 
 after_success:
   - cd ${TRAVIS_BUILD_DIR}
