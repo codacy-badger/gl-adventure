@@ -42,6 +42,7 @@
 #include "gslist.h"
 #include "gl_window.h"
 #include "load_bmp.h"
+#include "opengl.h"
 
 #include "def.h"
 

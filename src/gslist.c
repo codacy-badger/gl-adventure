@@ -32,6 +32,7 @@
 
 #include "gs_monster.h"
 
+#include "gslist.h"
 #include "gsgame.h"
 #include "gshelp.h"
 #include "gsintro.h"
