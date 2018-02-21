@@ -30,6 +30,8 @@
 
 #include <assert.h>
 
+#include <GL/glx.h> // Uses glXUseXFont()
+
 /** Load a named font
   *
   * \param font The object where the font is stored

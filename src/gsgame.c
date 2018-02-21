@@ -44,6 +44,7 @@ float map_zoom = 10.0f;
 #include <limits.h>
 
 #include "loadmap.h" // Uses get_random_map()
+#include "opengl.h"  // Uses gl_print()
 #include "time_utils.h"
 #include "gslist.h"
 #include "logger.h"
