@@ -1,6 +1,7 @@
 2018-02-12  Jérôme Pasquier  <rainbru@free.fr>
 
-	* src/inventory.c (inventory_list_remove): shouldn't return true;
+	* src/loadmap.c (load_map): must return a value for clang.
+	* src/inventory.c (inventory_list_remove): shouldn't return true.
 
 2018-02-01  Jérôme Pasquier  <rainbru@free.fr>
 

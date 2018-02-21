@@ -1,7 +1,7 @@
 # gl-adventure
 
 [![Build Status](https://travis-ci.org/rainbru/gl-adventure.svg?branch=master)](https://travis-ci.org/rainbru/gl-adventure)
-
+[![codecov](https://codecov.io/gh/rainbru/gl-adventure/branch/master/graph/badge.svg)](https://codecov.io/gh/rainbru/gl-adventure)
 A ugly C dungeon exploration game :
 
 ![Menu screenshot](doc/gla-menu.png)
