@@ -1,0 +1,28 @@
+sudo: required
+dist: trusty
+group: edge
+
+os:
+- linux
+language: c
+compiler:
+  - gcc
+  - clang
+  
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -y libgl1-mesa-dev freeglut3-dev
+
+script:
+  - mkdir ./build
+  - cd build
+  - cmake ..
+  - VERBOSE=1 make
+  - VERBOSE=1 make check
+
+after_success:
+  - cd ${TRAVIS_BUILD_DIR}
+  - lcov --directory . --capture --output-file coverage.info
+  - lcov --remove coverage.info '/usr/*' --output-file coverage.info
+  - lcov --list coverage.info
+  - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
