@@ -106,7 +106,7 @@ map_t* read_map_directory(int map_idx){
   }
   while (result!=NULL);
   closedir(dir);
-  return 1;
+  return NULL;
 }
 
 /** Loads a map

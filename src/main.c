@@ -35,6 +35,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <time.h>    // Uses time()
 
 #include <GL/glx.h>
 #include <GL/gl.h>

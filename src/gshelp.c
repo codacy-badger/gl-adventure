@@ -53,6 +53,9 @@
   */
 #define _(String) gettext (String)
 
+int current_page =0;
+
+
 /** Initialize the help viewer
   *
   * \return The game state containing the help viewer

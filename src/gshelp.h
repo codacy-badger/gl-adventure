@@ -25,8 +25,8 @@
   *
   */
 
-#ifndef _GS_GAME_H_
-#define _GS_GAME_H_
+#ifndef _GS_HELP_H_
+#define _GS_HELP_H_
 
 #include "gamestate.h"
 #include "stringlist.h"
@@ -59,7 +59,7 @@
 string_list_t* sl_index;
 
 /** The page index we are currently viewing */
-int current_page = 0;
+extern int current_page;
 
 /** An array of string list containing the content pages */
 string_list_t** sl_content;
@@ -73,4 +73,4 @@ int back_to_intro(void);
 int help_page_up(void);
 int help_page_down(void);
 
-#endif // _GS_GAME_H_
+#endif // _GS_HELP_H_
