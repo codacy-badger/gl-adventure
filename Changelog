@@ -1,5 +1,7 @@
-2018-02-12  Jérôme Pasquier  <rainbru@free.fr>
+2018-02-21  Jérôme Pasquier  <rainbru@free.fr>
 
+	* src/monster.c (init_monster): fix free_memory bad assignment.
+	* src/gshelp.h (current_page): now declared extern.
 	* src/loadmap.c (load_map): must return a value for clang.
 	* src/inventory.c (inventory_list_remove): shouldn't return true.
 

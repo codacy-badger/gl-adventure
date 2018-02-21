@@ -57,7 +57,7 @@ monster_t* init_monster(int vX, int vY){
 
   my->thinker = basic_thinker;
   my->init_memory = basic_thinker_init_memory;
-  my->init_memory = basic_thinker_free_memory;
+  my->free_memory = basic_thinker_free_memory;
 
   my->state = THINKING;
   my->state_time = get_game_time() * 1000;

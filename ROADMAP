@@ -66,7 +66,7 @@
 **** May add a screen to let the user enter its name
      or choose an already existing player (if alive)
 - [ ] It can lead to a save game (in ~/.gladventure)
-**** TODO Better project setup      [50%]
+**** TODO Better project setup
      CLOCK: [2018-02-05 lun. 04:30]--[2018-02-05 lun. 05:20] =>  0:50
      CLOCK: [2018-02-05 lun. 03:42]--[2018-02-05 lun. 04:12] =>  0:30
      CLOCK: [2017-09-03 dim. 00:32]--[2017-09-03 dim. 00:40] =>  0:08
@@ -89,6 +89,30 @@
 - [ ] --fullscreen command line option must work
 - [ ] May use gettext for content translation
 - [ ] There is a segfault when we go down when in the blue square Y axis
+**** TODO CI/coverage handling
+     CLOCK: [2018-02-21 mer. 10:31]--[2018-02-21 mer. 11:16] =>  0:45
+- [X] configure travis-ci
+- [X] Add travis badge
+- [ ] Should write UT and add make check to travis  
+
+- [-] Handle codecov.io
+  - [X] Add badge
+  - [ ] First build ok, not, need UTs first
+
+- [X] Must fix some implicit declaration of function
+
+- [ ] Must replace readdir_r usage with readdir
+  - [ ] First write UT for this
+
+- [ ] Handle codacy
+  - [ ] Add badge
+
+- [ ] May submit to coverity scan
+
+/home/travis/build/rainbru/gl-adventure/src/inventory.c:127:7: error: void
+      function 'inventory_list_remove' should not return a value [-Wreturn-type]
+      return true;
+
 **** DONE Trying to fix actual segfaults
      CLOCK: [2018-02-05 lun. 02:35]--[2018-02-05 lun. 03:42] =>  1:07
      CLOCK: [2018-02-01 jeu. 20:52]--[2018-02-01 jeu. 22:07] =>  1:15
