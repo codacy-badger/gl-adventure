@@ -105,8 +105,8 @@ map_t* read_map_directory(int map_idx){
     }
   }
   while (result!=NULL);
-
   closedir(dir);
+  return 1;
 }
 
 /** Loads a map
@@ -161,7 +161,7 @@ map_t* load_map(const char* map_name){
       case ML_MAGN:
 	if (strcmp(content, MAGIC_NUMBER)!=0){
 	  LOGS("Cannot load map '%s'. Spurious magic number.", map_name);
-	  return;
+	  return NULL;
 	}
 	else{
 	  load++;
