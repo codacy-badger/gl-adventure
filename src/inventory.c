@@ -124,7 +124,6 @@ void inventory_list_remove(inventory_t* iv, char* text){
   for (i=0; i<iv->size; i++){
     if (strcmp(iv->items[i]->name, text)==0){
       iv->items[i]->number--;
-      return;
     }
   }
 

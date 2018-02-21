@@ -1,3 +1,7 @@
+2018-02-12  Jérôme Pasquier  <rainbru@free.fr>
+
+	* src/inventory.c (inventory_list_remove): shouldn't return true;
+
 2018-02-01  Jérôme Pasquier  <rainbru@free.fr>
 
 	* src/loadmap.c (read_map_directory): now returns a map_t*.
