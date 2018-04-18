@@ -10,7 +10,10 @@ A ugly C dungeon exploration game :
 
 # Dependencies
 
-	sudo apt-get install -y libgl1-mesa-dev freeglut3-dev
+To install needed packages on Debian GNU/Linux :
+
+	sudo apt-get install -y libgl1-mesa-dev freeglut3-dev \
+	  libxmu-dev libxi-dev
 
 # Building
 
