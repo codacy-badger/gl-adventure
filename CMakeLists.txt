@@ -85,4 +85,5 @@ IF( CHECK_FOUND )
     ${X11_LIBRARIES} ${X11_Xxf86vm_LIB} ${CHECK_LIBRARIES}
     ${CMAKE_THREAD_LIBS_INIT})
   add_test(check gladventure-tests)
+  add_custom_target(check COMMAND gladventure-tests)
 ENDIF( CHECK_FOUND )

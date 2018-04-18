@@ -42,7 +42,8 @@ o [mouse] Monsters management
    Create a revision git tag and `git push --tags`
    
 * v0.1.3-42 (05 Feb. 2018 - ???) SLOC ?,??? FT ?:??
-- (3) CMake search for check library
+- (4) Add basic unit tests
+- CMake search for check library
 - Add travis-ci and codecov support
 - Version and revision now in CMakeLists.txt
 
