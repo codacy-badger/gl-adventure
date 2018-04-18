@@ -4,7 +4,7 @@ project (gladventure)
 
 # XA_DEBUG adds a lot of console output
 add_definitions(-DXA_BOOL) # -DXA_DEBUG)
-
+set( CMAKE_VERBOSE_MAKEFILE on )
 
 # Generate a config file
 set(VERSION 0.3.90)
@@ -60,11 +60,29 @@ set( CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} modules)
 find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)
 find_package(X11 REQUIRED)
+find_package (Threads)
 
 find_package(PkgConfig)
-pkg_search_module(CHECK CHECK)
+pkg_search_module(CHECK check REQUIRED)
 
 include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} 
 		     ${X11_INCLUDE_DIR} ${X11_xf86vmode_INCLUDE_PATH})
 target_link_libraries(gladventure m ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} 
 				  ${X11_LIBRARIES} ${X11_Xxf86vm_LIB})
+				
+				
+# Build	unit tests
+IF( CHECK_FOUND )
+  enable_testing()
+  set(test-src
+    src/colors_t.c
+    src/tests.c
+    
+    src/colors.c
+    )
+  add_executable(gladventure-tests ${test-src})
+  target_link_libraries(gladventure-tests m ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} 
+    ${X11_LIBRARIES} ${X11_Xxf86vm_LIB} ${CHECK_LIBRARIES}
+    ${CMAKE_THREAD_LIBS_INIT})
+  add_test(check gladventure-tests)
+ENDIF( CHECK_FOUND )
