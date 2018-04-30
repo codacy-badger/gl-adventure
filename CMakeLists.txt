@@ -1,6 +1,7 @@
 cmake_minimum_required (VERSION 2.6)
 
 project (gladventure)
+set(CMAKE_BUILD_TYPE Debug)
 
 # XA_DEBUG adds a lot of console output
 add_definitions(-DXA_BOOL) # -DXA_DEBUG)

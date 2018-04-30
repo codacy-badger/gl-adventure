@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <check.h>
 
+#include "colors_t.h"
 
  int main(void)
  {

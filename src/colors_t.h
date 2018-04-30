@@ -20,31 +20,15 @@
  *
  */
 
+
+#ifndef _COLORS_T_H_
+#define _COLORS_T_H_
+
 #include <check.h>
 
-#include "colors_t.h"
 #include "colors.h"
 
-/** Test the to_x macro
- *
- */
-START_TEST (test_to_x)
-{
-  
-  int v = TO_X(255);
-  ck_assert_int_eq(v, 65535);
-  
-}
-END_TEST
 
-Suite * colors_suite(void)
-{
-    Suite* s = suite_create("Colors");
+Suite* colors_suite(void);
 
-    TCase* tc_core = tcase_create("Core");
-
-    tcase_add_test(tc_core, test_to_x);
-    suite_add_tcase(s, tc_core);
-
-    return s;
-}
+#endif // !_COLORS_T_H_
