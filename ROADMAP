@@ -109,8 +109,10 @@
   - [X] Link to `make check`
 - [X] segfault on tests
   We had no headers for colors_t
+- [X] Add `make check` to travis.yml
 
-- [ ] Add `make check` to travis.yml
+- [ ] CI still fails
+  - check not found
 
 - [ ] Must replace readdir_r usage with readdir
   - [ ] First write UT for this

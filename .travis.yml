@@ -15,7 +15,7 @@ env:
   
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get install -y libgl1-mesa-dev freeglut3-dev
+  - sudo apt-get install -y libgl1-mesa-dev freeglut3-dev check
 
 script:
   - mkdir ./build
