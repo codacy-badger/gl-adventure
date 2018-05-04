@@ -74,7 +74,6 @@ map_t* get_random_map(void){
 map_t* read_map_directory(int map_idx){
   LOGI("Reading map directory '%i'", map_idx);
   int map_number=0;
-  int res;
   struct dirent entry;
   struct dirent* result;
   char last_char;
@@ -84,8 +83,8 @@ map_t* read_map_directory(int map_idx){
   assert(dir && "Cannot open maps/ dirctory");
 
   do {
-    res= readdir_r(dir, &entry, &result);
-    assert(res==0 && "Cannot read maps/ dirctory");
+    result = readdir(dir);
+    assert(result && "Cannot read maps/ dirctory");
     if (result){
       // Get the last char of the filename
       last_char = result->d_name[strlen(result->d_name)-1];
