@@ -32,7 +32,6 @@ set(SRC		  src/colors.c
 		  src/loadmap.c		
 		  src/load_objects.c	
 		  src/logger.c 		
-		  src/main.c  		
 		  src/map.c			
 		  src/monster.c		
 		  src/object_list.c		
@@ -54,7 +53,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -ggdb3 -O0 -DXA_DEBUG"
 
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
 
-add_executable(gladventure ${SRC})
+add_executable(gladventure ${SRC} src/main.c)
 
 set( CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} modules)
 
@@ -79,10 +78,8 @@ IF( CHECK_FOUND )
     src/colors_t.c
     src/loadmap_t.c
     src/tests.c
-    
-    src/colors.c
-    src/loadmap.c
-    src/map.c
+
+    ${SRC}
     )
   add_executable(gladventure-tests ${test-src})
   target_link_libraries(gladventure-tests m ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} 

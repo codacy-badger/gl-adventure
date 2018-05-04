@@ -27,7 +27,9 @@
 
 START_TEST (test_read_map_directory)
 {
-  
+  map_t* m = read_map_directory(0);
+  ck_assert(m != NULL);
+
 }
 END_TEST
 
