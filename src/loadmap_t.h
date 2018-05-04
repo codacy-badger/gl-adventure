@@ -1,5 +1,5 @@
 /*
- *  Copyright 2008-2010, 2018 Jerome PASQUIER
+ *  Copyright 2008-2010, 2018 Jérôme PASQUIER
  * 
  *  This file is part of glAdventure - A little game using XGL.
  *
@@ -20,24 +20,13 @@
  *
  */
 
-#include <stdlib.h>
+
+#ifndef _LOADMAP_T_H_
+#define _LOADMAP_T_H_
+
 #include <check.h>
 
-#include "colors_t.h"
-#include "loadmap_t.h"
 
-int main(void)
-{
-    int number_failed;
-    Suite *s;
-    SRunner *sr;
+Suite* loadmap_suite(void);
 
-    s = colors_suite();
-    sr = srunner_create(s);
-    srunner_add_suite (sr, loadmap_suite());
-
-    srunner_run_all(sr, CK_NORMAL);
-    number_failed = srunner_ntests_failed(sr);
-    srunner_free(sr);
-    return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
- }
+#endif // !_LOADMAP_T_H_

@@ -5,7 +5,7 @@ set(CMAKE_BUILD_TYPE Debug)
 
 # XA_DEBUG adds a lot of console output
 add_definitions(-DXA_BOOL) # -DXA_DEBUG)
-set( CMAKE_VERBOSE_MAKEFILE on )
+#set( CMAKE_VERBOSE_MAKEFILE on )
 
 # Generate a config file
 set(VERSION 0.3.90)
@@ -77,9 +77,12 @@ IF( CHECK_FOUND )
   enable_testing()
   set(test-src
     src/colors_t.c
+    src/loadmap_t.c
     src/tests.c
     
     src/colors.c
+    src/loadmap.c
+    src/map.c
     )
   add_executable(gladventure-tests ${test-src})
   target_link_libraries(gladventure-tests m ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} 

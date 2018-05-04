@@ -90,6 +90,7 @@
 - [ ] May use gettext for content translation
 - [ ] There is a segfault when we go down when in the blue square Y axis
 **** TODO CI/coverage handling
+     CLOCK: [2018-05-04 ven. 13:17]
      CLOCK: [2018-04-30 lun. 23:03]--[2018-04-30 lun. 23:39] =>  0:36
      CLOCK: [2018-04-18 mer. 19:34]--[2018-04-18 mer. 20:34] =>  1:00
      CLOCK: [2018-04-18 mer. 19:03]--[2018-04-18 mer. 19:28] =>  0:25
@@ -110,12 +111,11 @@
 - [X] segfault on tests
   We had no headers for colors_t
 - [X] Add `make check` to travis.yml
-
-- [ ] CI still fails
-  - check not found
+- [X] CI still fails - check not found : fixed
 
 - [ ] Must replace readdir_r usage with readdir
-  - [ ] First write UT for this
+  - [ ] First write UT for this (actually 1 check)
+  - [ ] Then, replace readdir
 
 - [ ] Handle codacy
   - [ ] Add badge

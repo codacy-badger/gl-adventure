@@ -20,24 +20,25 @@
  *
  */
 
-#include <stdlib.h>
 #include <check.h>
 
-#include "colors_t.h"
 #include "loadmap_t.h"
+#include "loadmap.h"
 
-int main(void)
+START_TEST (test_read_map_directory)
 {
-    int number_failed;
-    Suite *s;
-    SRunner *sr;
+  
+}
+END_TEST
 
-    s = colors_suite();
-    sr = srunner_create(s);
-    srunner_add_suite (sr, loadmap_suite());
+Suite * loadmap_suite(void)
+{
+    Suite* s = suite_create("Loadmap");
 
-    srunner_run_all(sr, CK_NORMAL);
-    number_failed = srunner_ntests_failed(sr);
-    srunner_free(sr);
-    return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
- }
+    TCase* tc_core = tcase_create("Core");
+
+    tcase_add_test(tc_core, test_read_map_directory);
+    suite_add_tcase(s, tc_core);
+
+    return s;
+}
